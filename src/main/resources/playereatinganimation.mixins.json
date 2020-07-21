@@ -1,12 +1,12 @@
 {
   "required": true,
-  "package": "com.example.examplemod.mixin",
+  "package": "tallestegg.playereatinganimation.mixin",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "examplemod.refmap.json",
+  "refmap": "playereatinganimation.refmap.json",
   "mixins": [
   ],
   "client":[
-    "ExampleMixin"
+    "PLayerModelMixin"
   ],
   "injectors": {
     "defaultRequire": 1
