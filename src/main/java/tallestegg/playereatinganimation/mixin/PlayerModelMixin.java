@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.entity.model.PlayerModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
+import net.minecraft.util.Hand;
 import net.minecraft.util.HandSide;
 import net.minecraft.util.math.MathHelper;
 
@@ -23,18 +24,35 @@ public class PlayerModelMixin <T extends LivingEntity> extends BipedModel<T>
 	@Inject(at = @At("TAIL"), method = "setRotationAngles(Lnet/minecraft/entity/LivingEntity;FFFFF)V")
 	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo info) 
 	{
-	  ItemStack itemstack = entityIn.getHeldItemMainhand();
-	  ItemStack itemstack1 = entityIn.getHeldItemOffhand();
-	  if (itemstack.getUseAction() == UseAction.EAT && entityIn.isHandActive() && entityIn.getPrimaryHand() == HandSide.RIGHT || itemstack1.getUseAction() == UseAction.EAT && entityIn.isHandActive() && entityIn.getPrimaryHand() == HandSide.LEFT) 
-	  {
+		if (entityIn.getPrimaryHand() == HandSide.RIGHT) 
+		{
+           this.eatingAnimationRightHand(Hand.MAIN_HAND, entityIn, ageInTicks);
+           this.eatingAnimationLeftHand(Hand.OFF_HAND, entityIn, ageInTicks);
+		} else {
+	       this.eatingAnimationRightHand(Hand.OFF_HAND, entityIn, ageInTicks);
+	       this.eatingAnimationLeftHand(Hand.MAIN_HAND, entityIn, ageInTicks);
+		}
+	}
+	
+	public void eatingAnimationRightHand(Hand hand, LivingEntity entity, float ageInTicks)
+	{
+		ItemStack itemstack = entity.getHeldItem(hand);
+		if (entity.getItemInUseCount() > 0 && itemstack.getUseAction() == UseAction.EAT && entity.getActiveHand() == hand)
+        {
             this.bipedRightArm.rotateAngleY = -0.5F;
             this.bipedRightArm.rotateAngleX = -1.3F;
             this.bipedRightArm.rotateAngleZ = MathHelper.cos(ageInTicks) * 0.05F;
-	  } else if (itemstack.getUseAction() == UseAction.EAT && entityIn.isHandActive() && entityIn.getPrimaryHand() == HandSide.LEFT || itemstack1.getUseAction() == UseAction.EAT && entityIn.isHandActive() && entityIn.getPrimaryHand() == HandSide.RIGHT)
-      {
-          this.bipedLeftArm.rotateAngleY = 0.5F;
-          this.bipedLeftArm.rotateAngleX = -1.3F;
-          this.bipedLeftArm.rotateAngleZ = MathHelper.cos(ageInTicks) * 0.05F;
-      }
-	 }
+        }
+	}
+	
+	public void eatingAnimationLeftHand(Hand hand, LivingEntity entity, float ageInTicks)
+	{
+		ItemStack itemstack = entity.getHeldItem(hand);
+		if (entity.getItemInUseCount() > 0 && itemstack.getUseAction() == UseAction.EAT && entity.getActiveHand() == hand)
+        {
+            this.bipedLeftArm.rotateAngleY = 0.5F;
+            this.bipedLeftArm.rotateAngleX = -1.3F;
+            this.bipedLeftArm.rotateAngleZ = MathHelper.cos(ageInTicks) * 0.05F;
+        }
+	}
 }
