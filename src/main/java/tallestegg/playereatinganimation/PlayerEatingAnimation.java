@@ -26,5 +26,4 @@ public class PlayerEatingAnimation
     private void doClientStuff(final FMLClientSetupEvent event) 
     {
     }
-
 }
