@@ -58,6 +58,8 @@ public class DrownedModelMixin<T extends ZombieEntity> extends ZombieModel<T> {
 	         }
 	         this.bipedLeftLeg.rotateAngleX = MathHelper.lerp(this.swimAnimation, this.bipedLeftLeg.rotateAngleX, 0.3F * MathHelper.cos(limbSwing * 0.33333334F + (float)Math.PI));
 	         this.bipedRightLeg.rotateAngleX = MathHelper.lerp(this.swimAnimation, this.bipedRightLeg.rotateAngleX, 0.3F * MathHelper.cos(limbSwing * 0.33333334F));
+	      } else {
+	    	  entityIn.setPose(Pose.STANDING);
 	      }
 	}
 	
