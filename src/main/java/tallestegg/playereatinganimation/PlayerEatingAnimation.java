@@ -39,6 +39,9 @@ public class PlayerEatingAnimation
     		if (event.getEntity() instanceof DrownedEntity && event.getPose() == Pose.SWIMMING) {
     			event.setNewHeight(0.2F);
     			event.getEntity().size = EntitySize.flexible(0.6F, 0.6F);
+    			if (((DrownedEntity)event.getEntity()).isChild()) {
+    				event.getEntity().size = EntitySize.flexible(0.7F, 0.6F);
+    			}
     		}
     	}
     }
