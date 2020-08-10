@@ -4,9 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "playereatinganimation.refmap.json",
   "mixins": [
-   "PlayerModelMixin",
-   "DrownedModelMixin",
-   "DrownedRendererMixin"
+   "PlayerModelMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -42,7 +42,7 @@ public class PlayerModelMixin <T extends LivingEntity> extends BipedModel<T>
         {
             this.bipedRightArm.rotateAngleY = -0.5F;
             this.bipedRightArm.rotateAngleX = -1.3F;
-            this.bipedRightArm.rotateAngleZ = MathHelper.cos(ageInTicks) * 0.15F;
+            this.bipedRightArm.rotateAngleZ = MathHelper.cos(ageInTicks) * 0.1F;
         }
 	}
 	
@@ -54,7 +54,7 @@ public class PlayerModelMixin <T extends LivingEntity> extends BipedModel<T>
         {
             this.bipedLeftArm.rotateAngleY = 0.5F;
             this.bipedLeftArm.rotateAngleX = -1.3F;
-            this.bipedLeftArm.rotateAngleZ = MathHelper.cos(ageInTicks) * 0.15F;
+            this.bipedLeftArm.rotateAngleZ = MathHelper.cos(ageInTicks) * 0.1F;
         }
 	}
 }
