@@ -18,7 +18,7 @@ import net.minecraft.util.math.MathHelper;
 public class PlayerModelMixin <T extends LivingEntity> extends BipedModel<T>
 {	
 	public PlayerModelMixin(float p_i1148_1_) {
-		super(p_i1148_1_);
+        super(p_i1148_1_);
 	}
 
 	@Inject(at = @At("TAIL"), method = "setRotationAngles(Lnet/minecraft/entity/LivingEntity;FFFFF)V")
@@ -48,7 +48,7 @@ public class PlayerModelMixin <T extends LivingEntity> extends BipedModel<T>
 	
     public void eatingAnimationLeftHand(Hand hand, LivingEntity entity, float ageInTicks)
     {
-		ItemStack itemstack = entity.getHeldItem(hand);
+        ItemStack itemstack = entity.getHeldItem(hand);
         boolean drinkingoreating = itemstack.getUseAction() == UseAction.EAT || itemstack.getUseAction() == UseAction.DRINK;
         if (entity.getItemInUseCount() > 0 && drinkingoreating && entity.getActiveHand() == hand)
         {
