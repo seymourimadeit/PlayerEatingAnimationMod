@@ -4,7 +4,7 @@ issueTrackerURL="http://my.issue.tracker/" #optional
 license="MIT"
 [[mods]] #mandatory
 modId="playereatinganimation" #mandatory
-version="1.0" #mandatory
+version="1.1" #mandatory
  # A display name for the mod
 displayName="Player Eating Animation" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
