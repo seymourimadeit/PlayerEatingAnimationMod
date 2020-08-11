@@ -34,8 +34,8 @@ public class PlayerModelMixin <T extends LivingEntity> extends BipedModel<T>
         }
 	}
 	
-	public void eatingAnimationRightHand(Hand hand, LivingEntity entity, float ageInTicks)
-	{
+    public void eatingAnimationRightHand(Hand hand, LivingEntity entity, float ageInTicks)
+    {
         ItemStack itemstack = entity.getHeldItem(hand);
         boolean drinkingoreating = itemstack.getUseAction() == UseAction.EAT || itemstack.getUseAction() == UseAction.DRINK;
         if (entity.getItemInUseCount() > 0 && drinkingoreating && entity.getActiveHand() == hand)
