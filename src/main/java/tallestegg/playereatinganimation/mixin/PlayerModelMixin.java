@@ -31,7 +31,7 @@ public class PlayerModelMixin <T extends LivingEntity> extends BipedModel<T>
 
     @Inject(at = @At("TAIL"), method = "setRotationAngles(Lnet/minecraft/entity/LivingEntity;FFFFF)V")
     public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo info) 
-	{
+    {
         if (entityIn.getPrimaryHand() == HandSide.RIGHT) 
         {
             this.eatingAnimationRightHand(Hand.MAIN_HAND, entityIn, ageInTicks);
